@@ -8,6 +8,7 @@ import Button from '@/components/ui/Button';
 import Card from '@/components/ui/Card';
 import ContactCTA from '@/components/sections/ContactCTA';
 import PipelineVisualizer from '@/components/visuals/PipelineVisualizer';
+import JwtAuthVisualizer from '@/components/visuals/JwtAuthVisualizer';
 import { projectsData } from '@/data/projects';
 
 export function generateStaticParams() {
@@ -145,6 +146,16 @@ export default function CaseStudyPage({ params }) {
                 03. SYSTEM ARCHITECTURE VISUALIZATION
               </h2>
               <PipelineVisualizer />
+            </section>
+          )}
+
+          {/* Optional Visualizer for Full-Stack Task Management JWT Authentication */}
+          {project.slug === 'fullstack-task-workflow-management-platform' && (
+            <section className="space-y-4">
+              <h2 className="text-xl font-bold font-mono text-brand-cyan">
+                03. JWT SECURITY & API AUTHENTICATION CODE ARCHITECTURE
+              </h2>
+              <JwtAuthVisualizer />
             </section>
           )}
 
