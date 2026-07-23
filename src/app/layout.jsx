@@ -9,6 +9,7 @@ export const viewport = {
 };
 
 export const metadata = {
+  metadataBase: new URL('https://kibret-ai.vercel.app'),
   title: `${profileData.name} | AI Engineer & Computer Engineer`,
   description: profileData.bio.summary,
   keywords: [
@@ -29,7 +30,7 @@ export const metadata = {
   openGraph: {
     title: `${profileData.name} | AI Engineer & Computer Engineer`,
     description: profileData.bio.tagline,
-    url: 'https://kibretmulugeta.com',
+    url: 'https://kibret-ai.vercel.app',
     siteName: 'Kibret Mulugeta Identity Platform',
     type: 'website',
   },
