@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Terminal, ArrowUpRight } from 'lucide-react';
+import { Menu, X, Terminal, ArrowUpRight, Lock } from 'lucide-react';
 import Container from '../ui/Container';
 import Button from '../ui/Button';
 
@@ -82,6 +82,13 @@ export default function Navbar() {
 
           {/* Action CTA */}
           <div className="hidden md:flex items-center gap-3">
+            <Link
+              href="/admin/login"
+              className="p-2 rounded-lg bg-dark-surface border border-white/10 text-brand-subtle hover:text-brand-cyan hover:border-brand-cyan/40 transition-colors"
+              title="Owner Admin Login"
+            >
+              <Lock className="w-4 h-4" />
+            </Link>
             <Button href="/contact" variant="outline" size="sm">
               <span>Get in Touch</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
