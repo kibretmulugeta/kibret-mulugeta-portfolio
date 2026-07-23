@@ -94,7 +94,7 @@ export default async function Image() {
             MSc Computer Engineering — Bahir Dar University
           </span>
           <span style={{ color: '#38BDF8', fontSize: '18px', fontWeight: 'bold', fontFamily: 'monospace' }}>
-            kibretmulugeta.com
+            kibretai.vercel.app
           </span>
         </div>
       </div>
