@@ -12,7 +12,6 @@ const navItems = [
   { label: 'Home', href: '/' },
   { label: 'Work', href: '/work' },
   { label: 'Research', href: '/research' },
-  { label: 'Dashboard', href: '/dashboard' },
   { label: 'About', href: '/about' },
   { label: 'Resume', href: '/resume' },
   { label: 'Contact', href: '/contact' },
@@ -84,9 +83,9 @@ export default function Navbar() {
           {/* Action CTA */}
           <div className="hidden md:flex items-center gap-3">
             <Link
-              href="/admin/login"
+              href="/dashboard"
               className="p-2 rounded-lg bg-dark-surface border border-white/10 text-brand-subtle hover:text-brand-cyan hover:border-brand-cyan/40 transition-colors"
-              title="Owner Admin Login"
+              title="Owner Command Center"
             >
               <Lock className="w-4 h-4" />
             </Link>
