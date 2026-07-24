@@ -139,7 +139,7 @@ export default function ContactPage() {
                         required
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        placeholder="e.g. Dr. Sarah Jenkins"
+                        placeholder="Enter your full name"
                         className="w-full px-3 py-2.5 rounded-lg bg-dark-bg border border-white/10 text-brand-text focus:outline-none focus:border-brand-cyan"
                       />
                     </div>
@@ -150,7 +150,7 @@ export default function ContactPage() {
                         required
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        placeholder="e.g. sarah@institution.org"
+                        placeholder="Enter your email address"
                         className="w-full px-3 py-2.5 rounded-lg bg-dark-bg border border-white/10 text-brand-text focus:outline-none focus:border-brand-cyan"
                       />
                     </div>
@@ -162,7 +162,7 @@ export default function ContactPage() {
                       type="text"
                       value={formData.subject}
                       onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                      placeholder="e.g. AI Engineering Role / Research Collaboration"
+                      placeholder="Enter subject or collaboration topic"
                       className="w-full px-3 py-2.5 rounded-lg bg-dark-bg border border-white/10 text-brand-text focus:outline-none focus:border-brand-cyan"
                     />
                   </div>
