@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   ShieldCheck,
@@ -47,26 +48,23 @@ export default function OwnerDashboardPage() {
   const [manuscriptInput, setManuscriptInput] = useState(manuscriptStatus);
   const [projectsList, setProjectsList] = useState(projectsData);
   const [taskFilter, setTaskFilter] = useState('All');
+  const router = useRouter();
 
   useEffect(() => {
     const token = typeof window !== 'undefined' ? localStorage.getItem('kibret_admin_jwt') : null;
     const storedUser = typeof window !== 'undefined' ? localStorage.getItem('kibret_admin_user') : null;
 
     if (!token || !storedUser) {
-      if (typeof window !== 'undefined') {
-        window.location.href = '/admin/login';
-      }
+      router.replace('/admin/login');
       return;
     }
 
     try {
       setUser(JSON.parse(storedUser));
     } catch {
-      if (typeof window !== 'undefined') {
-        window.location.href = '/admin/login';
-      }
+      router.replace('/admin/login');
     }
-  }, []);
+  }, [router]);
 
   const handleRefresh = () => {
     setRefreshing(true);
