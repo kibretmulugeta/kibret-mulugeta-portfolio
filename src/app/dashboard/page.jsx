@@ -37,6 +37,7 @@ import { projectsData } from '@/data/projects';
 import { researchData } from '@/data/research';
 
 export default function OwnerDashboardPage() {
+  const [user, setUser] = useState(null);
   const [activeTab, setActiveTab] = useState('telemetry');
   const [liveStream, setLiveStream] = useState(true);
   const [lastRefreshed, setLastRefreshed] = useState('Just now');
@@ -46,6 +47,26 @@ export default function OwnerDashboardPage() {
   const [manuscriptInput, setManuscriptInput] = useState(manuscriptStatus);
   const [projectsList, setProjectsList] = useState(projectsData);
   const [taskFilter, setTaskFilter] = useState('All');
+
+  useEffect(() => {
+    const token = typeof window !== 'undefined' ? localStorage.getItem('kibret_admin_jwt') : null;
+    const storedUser = typeof window !== 'undefined' ? localStorage.getItem('kibret_admin_user') : null;
+
+    if (!token || !storedUser) {
+      if (typeof window !== 'undefined') {
+        window.location.href = '/admin/login';
+      }
+      return;
+    }
+
+    try {
+      setUser(JSON.parse(storedUser));
+    } catch {
+      if (typeof window !== 'undefined') {
+        window.location.href = '/admin/login';
+      }
+    }
+  }, []);
 
   const handleRefresh = () => {
     setRefreshing(true);
@@ -65,6 +86,15 @@ export default function OwnerDashboardPage() {
   const filteredTasks = taskFilter === 'All'
     ? taskQueue
     : taskQueue.filter(t => t.state === taskFilter);
+
+  if (!user) {
+    return (
+      <div className="pt-32 pb-20 min-h-screen bg-tactical-grid flex flex-col items-center justify-center font-mono text-xs text-brand-cyan gap-3">
+        <Lock className="w-8 h-8 text-brand-cyan animate-pulse" />
+        <span>Validating Owner JWT Authentication & Passcode...</span>
+      </div>
+    );
+  }
 
   return (
     <div className="pt-24 pb-16 bg-tactical-grid min-h-screen">
